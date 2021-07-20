@@ -1,10 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import { Button } from "semantic-ui-react";
-import {connect} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {signIn, signOut} from './action'
 function GoogleAuth(){
 const [auth, setAuth] = useState({})
+const dispatch = useDispatch()
+const isSignedInside = useSelector((state)=>state.auth.isSignedIn)
+console.log(isSignedInside);
+
     useEffect(()=>{
       window.gapi.load("client:auth2",()=>{
        window.gapi.client.init({
@@ -21,10 +25,10 @@ const [auth, setAuth] = useState({})
 
 function handleAuth(isSignedIn){
    if(isSignedIn){
-    signIn();
+    dispatch(signIn())
    }
    else{
-      signOut();
+      dispatch(signOut());
    }
 }
 
@@ -35,11 +39,8 @@ function handleAuth(isSignedIn){
       auth.signOut()
     }
 
-    const mapStateToProps=(state)=>{
-      return {isSignedIn: state.auth.isSignedIn}
-    }
 
-return !this.props.isSignedIn?<><h2>Log in first</h2> <Button onClick={handleSignIn} >Sign in</Button></>:(
+return !isSignedInside?<><h2>Log in first</h2> <Button onClick={handleSignIn} >Sign in</Button></>:(
     <>
     <h2>You are logged in.  </h2>
     <Button onClick={handleSignOut}>Sign out</Button>
@@ -47,4 +48,4 @@ return !this.props.isSignedIn?<><h2>Log in first</h2> <Button onClick={handleSig
 )
 
 }
-export default connect(null, {signIn, signOut})(GoogleAuth);
+export default GoogleAuth;
