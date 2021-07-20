@@ -6,6 +6,10 @@ export const Modal = ({noHandler, yesHandler}) =>{
         <h4>Are you ready?</h4>
       <button onClick={yesHandler}>yes</button>
       <button onClick={noHandler}>no</button>
+      <select >
+            <option>All</option>
+           
+          </select>
         </>
     )
 }
