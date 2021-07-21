@@ -2,15 +2,15 @@ import { useEffect } from "react"
 import axios from 'axios'
 import { useState } from "react/cjs/react.development"
 import QuizCard from "../utils/quizCard";
-import { Grid, GridColumn, Placeholder } from 'semantic-ui-react'
+import { Grid,  GridColumn, Placeholder, Card } from 'semantic-ui-react'
 
-export const Quiz = ()=>{
+export const Quiz = ({category})=>{
 
     const [quizes,setQuiz] = useState([]);
     useEffect(()=>{
      const quizData= async ()=>{
          
-      const response =  await axios.get('https://quizapi.io/api/v1/questions',{
+      const response =  await axios.get(`https://quizapi.io/api/v1/questions?category=${category}`,{
          headers: {
              'X-Api-Key' : "iRaE87UHArBF1ginXT7u7smKCcSkcqRkrcJp152a"
          }
@@ -26,6 +26,14 @@ quizData();
         <>
 
         <h2>Quiz section</h2>
+        <label> Difficulty: </label>
+        <select >
+           
+            <option>Any</option>
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select> <hr/>
         <Grid divided='vertically'>
     <Grid.Row columns={3}>
       
@@ -39,11 +47,27 @@ quizData();
         </Grid.Row>
         </Grid>
         </>
-    ):(<Placeholder.Paragraph>
-        <Placeholder.Line />
-        <Placeholder.Line />
-        <Placeholder.Line />
-        <Placeholder.Line />
-        <Placeholder.Line />
-      </Placeholder.Paragraph>)
+    ):( <Card.Group itemsPerRow={3}>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+      </Card.Group>)
 }

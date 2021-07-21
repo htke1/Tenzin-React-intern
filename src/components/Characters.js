@@ -24,9 +24,9 @@ export const Characters = ({characterSet})=>{
       <img src={devops} alt="devops"/>
       DevOps
     </Label>
-    <Label as='a' name="Programming " image onClick={(e)=>characterSet(e.currentTarget.name)}>
+    <Label as='a' name="Cloud" image onClick={(e)=>characterSet(e.currentTarget.name)}>
       <img src={devs} alt="developer" />
-      Programming 
+      Cloud 
     </Label>
     </Modal.Content>
     </Modal>
