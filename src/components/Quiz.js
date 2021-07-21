@@ -26,7 +26,7 @@ quizData();
         <>
 
         <h2>Quiz section</h2>
-        <label> Difficulty: </label>
+        <label> Choose difficulty: </label>
         <select >
            
             <option>Any</option>
