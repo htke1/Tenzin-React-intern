@@ -6,6 +6,8 @@ import React, {useState} from 'react'
 import {Characters} from './components/Characters'
 import GoogleAuth from './GoogleAuth';
 import {useSelector} from 'react-redux'
+
+import AdminPage from './react-admin';
 //App component
 function App() {
 const [modal,setModal]= useState(false);
@@ -52,9 +54,11 @@ if(category===null){
   <div id="main">
   
   <h2>You have chosen {category}</h2> 
+  
     <button onClick={handleMainBtn}>{modal?"X":"Start"}</button>
     {modal?<Modal noHandler={noHandler} yesHandler={yesHandler}/>:<h1>Click on the button</h1>}
     {ready?<Quiz category={category}/>:<h3>...</h3>}
+    
     </div>
   );
 }

@@ -26,7 +26,7 @@ export const Characters = ({characterSet})=>{
     </Label>
     <Label as='a' name="Cloud" image onClick={(e)=>characterSet(e.currentTarget.name)}>
       <img src={devs} alt="developer" />
-      Cloud 
+      Cloud Computing 
     </Label>
     </Modal.Content>
     </Modal>

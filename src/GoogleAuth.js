@@ -40,7 +40,7 @@ function handleAuth(isSignedIn){
     }
 
 
-return !isSignedInside?<><h2>Log in first</h2> <Button onClick={handleSignIn} >Sign in</Button></>:(
+return !isSignedInside?<><h2>Login first</h2> <Button onClick={handleSignIn} >Sign in</Button></>:(
     <>
     <h2>You are logged in.  </h2>
     <Button onClick={handleSignOut}>Sign out</Button>
