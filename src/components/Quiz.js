@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState } from "react/cjs/react.development"
 import QuizCard from "../utils/quizCard";
 import { Grid,  GridColumn, Placeholder, Card } from 'semantic-ui-react'
-
+import { Link } from "react-router-dom";
 export const Quiz = ({category})=>{
 
     const [quizes,setQuiz] = useState([]);
@@ -33,7 +33,9 @@ quizData();
             <option>Easy</option>
             <option>Medium</option>
             <option>Hard</option>
-          </select> <hr/>
+          </select> 
+          <Link to="/admin"><button>Admin Board</button></Link>
+          <hr/>
         <Grid divided='vertically'>
     <Grid.Row columns={3}>
       
