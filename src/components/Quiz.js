@@ -1,7 +1,8 @@
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import axios from 'axios'
 import { useState } from "react/cjs/react.development"
 import QuizCard from "../utils/quizCard";
+import './Quiz.css'
 import { Grid,  GridColumn, Placeholder, Card } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
@@ -56,7 +57,7 @@ const changePage = ({ selected }) => {
             <option>Medium</option>
             <option>Hard</option>
           </select> 
-          <Link to="/admin"><button>Admin Board</button></Link>
+          // <Link to="/admin"><button>Admin Board</button></Link>
           <hr/>
         <Grid divided='vertically'>
     
@@ -64,6 +65,7 @@ const changePage = ({ selected }) => {
        {displayQuiz}
       
         </Grid>
+        <div id="paginasiun">
         <ReactPaginate
         previousLabel={"Previous"}
         nextLabel={"Next"}
@@ -74,6 +76,7 @@ const changePage = ({ selected }) => {
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
         />
+        </div>
         </>
     ):( <Card.Group itemsPerRow={3}>
         <Card>

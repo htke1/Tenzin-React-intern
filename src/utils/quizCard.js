@@ -12,7 +12,7 @@ return(
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-          <p>A) {quiz.answers.answer_a}</p>
+          <p onClick={()=>console.log("hi")}>A) {quiz.answers.answer_a}</p>
           <p>B) {quiz.answers.answer_b}</p>
           <p>C) {quiz.answers.answer_c}</p>
           <p>D) {quiz.answers.answer_d}</p>
