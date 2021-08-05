@@ -12,7 +12,7 @@ export const Characters = ({characterSet})=>{
   onClose={() => setOpen(false)}
   onOpen={() => setOpen(true)}
   open={open}
-  trigger={<Button>Show Modal</Button>}
+  trigger={<Button>Choose one</Button>}
 >
 <Modal.Header>Select a Category</Modal.Header>
   <Modal.Content>
